@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/Java-Base/image-20240925153940994.png">
 <meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/Java-Base/jvm-rough-structure-model.png">
 <meta property="article:published_time" content="2024-09-24T06:39:25.000Z">
-<meta property="article:modified_time" content="2024-09-25T09:31:13.043Z">
+<meta property="article:modified_time" content="2024-09-25T09:33:41.386Z">
 <meta property="article:author" content="Lee">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://jiajun-lab.github.io/Java-Base/image-20240822185158268.png">
@@ -314,7 +314,7 @@
 <li>JRE &#x3D; JVM+核心类库</li>
 <li>java开发工具</li>
 <li>JDK &#x3D; JRE + java开发工具</li>
-<li><img src="/./Java-Base/image-20240822185158268.png" srcset="/img/loading.gif" lazyload alt="image-20240822185158268"></li>
+<li><img src="/Java-Base/image-20240822185158268.png" srcset="/img/loading.gif" lazyload alt="image-20240822185158268"></li>
 </ol>
 <h4 id="2-Long-term-Support：-JDK-8（开发环境）-JDK-11-JDK17（教学阶段）"><a href="#2-Long-term-Support：-JDK-8（开发环境）-JDK-11-JDK17（教学阶段）" class="headerlink" title="2. Long term Support： JDK-8（开发环境） JDK-11 JDK17（教学阶段）"></a>2. Long term Support： <strong>JDK-8（开发环境） JDK-11 JDK17（教学阶段）</strong></h4><h4 id="3-java-是执行工具-javac是编译工具"><a href="#3-java-是执行工具-javac是编译工具" class="headerlink" title="3. java 是执行工具 javac是编译工具"></a>3. java 是执行工具 javac是编译工具</h4><h4 id="4-win问题"><a href="#4-win问题" class="headerlink" title="4. win问题"></a>4. win问题</h4><ol>
 <li>文件扩展名问题</li>
@@ -337,7 +337,7 @@
 </li>
 <li><p>所有类都可以看到在java.lang中的类</p>
 </li>
-<li><p><img src="/./Java-Base/image-20240923100409956.png" srcset="/img/loading.gif" lazyload alt="image-20240923100409956"></p>
+<li><p><img src="/Java-Base/image-20240923100409956.png" srcset="/img/loading.gif" lazyload alt="image-20240923100409956"></p>
 </li>
 </ol>
 <h4 id="9-TreeSet和HashSet的区别"><a href="#9-TreeSet和HashSet的区别" class="headerlink" title="9. TreeSet和HashSet的区别"></a>9. TreeSet和HashSet的区别</h4><ol>
@@ -357,14 +357,14 @@
 <li>应用： HashMap 基本上是散列的一种实现。 因此，只要我们需要使用键值对进行散列，就可以使用 HashMap。 例如，在网络应用程序中，用户名作为键存储，而用户数据作为值存储在 HashMap 中，以便更快地检索与用户名相对应的用户数据。</li>
 <li>对于添加、删除、包含键等操作，时间复杂度为 O(log n)，其中 n 是 TreeMap 中元素的数量。</li>
 <li>TreeMap 始终保持元素排序（递增），而 HashMap 中的元素没有顺序。 TreeMap 还为键的首数、尾数、下限和上限提供了方法。</li>
-<li><img src="/./Java-Base/image-20240923105349172.png" srcset="/img/loading.gif" lazyload alt="image-20240923105349172"></li>
+<li><img src="/Java-Base/image-20240923105349172.png" srcset="/img/loading.gif" lazyload alt="image-20240923105349172"></li>
 <li>概述：<ol>
 <li>HashMap 实现 Map 接口，而 TreeMap 实现 SortedMap 接口。 Sorted Map 接口是 Map 的子接口。</li>
 <li>HashMap 实现了 Hashing，而 TreeMap 实现了 Red-Black Tree（一种自平衡二叉搜索树）。 HashMap 和 TreeMap 都有对应的 HashSet 和 TreeSet。</li>
 <li>HashSet 和 TreeSet 实现了 Set 接口。 在 HashSet 和 TreeSet 中，我们只有键，没有值，它们主要用于查看集合中是否存在。 对于上述问题，我们不能使用 HashSet（或 TreeSet），因为我们不能存储计数。 与 HashMap（或 TreeMap）相比，我们更倾向于使用 HashSet（或 TreeSet）的一个例子是打印数组中所有不同的元素。</li>
 </ol>
 </li>
-<li><img src="/./Java-Base/image-20240923105554025.png" srcset="/img/loading.gif" lazyload alt="image-20240923105554025"></li>
+<li><img src="/Java-Base/image-20240923105554025.png" srcset="/img/loading.gif" lazyload alt="image-20240923105554025"></li>
 </ol>
 <h4 id="11-无法直接访问私有变量的情况"><a href="#11-无法直接访问私有变量的情况" class="headerlink" title="11. 无法直接访问私有变量的情况"></a>11. 无法直接访问私有变量的情况</h4><ul>
 <li><strong>跨类访问</strong>：如果你在另一个类中尝试访问<code>Person</code>类的<code>age</code>字段，将会因为访问控制而无法访问。例如：</li>
@@ -408,7 +408,7 @@
 <img src="Java-Base/java-code-to-machine-code.png" srcset="/img/loading.gif" lazyload style="zoom:100%;" />
 
 <p>我们需要格外注意的是 <code>.class-&gt;机器码</code> 这一步。在这一步 JVM 类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。而且，有些方法和代码块是经常需要被调用的(也就是所谓的热点代码)，所以后面引进了 <strong>JIT（Just in Time Compilation）</strong> 编译器，而 JIT 属于运行时编译。当 JIT 编译器完成第一次编译后，其会将字节码对应的机器码保存下来，下次可以直接使用。而我们知道，机器码的运行效率肯定是高于 Java 解释器的。这也解释了我们为什么经常会说 <strong>Java 是编译与解释共存的语言</strong> 。</p>
-<p><img src="/./Java-Base/image-20240925153827361.png" srcset="/img/loading.gif" lazyload alt="image-20240925153827361"></p>
+<p><img src="/Java-Base/image-20240925153827361.png" srcset="/img/loading.gif" lazyload alt="image-20240925153827361"></p>
 <blockquote>
 <p>[!NOTE]</p>
 <p>HotSpot 采用了惰性评估(Lazy Evaluation)的做法，根据二八定律，消耗大部分系统资源的只有那一小部分的代码（热点代码），而这也就是 JIT 所需要编译的部分。JVM 会根据代码每次被执行的情况收集信息并相应地做出一些优化，因此执行的次数越多，它的速度就越快。</p>
