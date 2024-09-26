@@ -404,7 +404,7 @@
 </ul>
 <h4 id="12-什么是字节码-采用字节码的好处是什么"><a href="#12-什么是字节码-采用字节码的好处是什么" class="headerlink" title="12. 什么是字节码?采用字节码的好处是什么?"></a>12. <a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AD%97%E8%8A%82%E7%A0%81-%E9%87%87%E7%94%A8%E5%AD%97%E8%8A%82%E7%A0%81%E7%9A%84%E5%A5%BD%E5%A4%84%E6%98%AF%E4%BB%80%E4%B9%88">什么是字节码?采用字节码的好处是什么?</a></h4><p>在 Java 中，JVM 可以理解的代码就叫做字节码（即扩展名为 <code>.class</code> 的文件），它不面向任何特定的处理器，只面向虚拟机。Java 语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。所以， Java 程序运行时相对来说还是高效的（不过，和 C、 C++，Rust，Go 等语言还是有一定差距的），而且，由于字节码并不针对一种特定的机器，因此，Java 程序无须重新编译便可在多种不同操作系统的计算机上运行。</p>
 <p><strong>Java 程序从源代码到运行的过程如下图所示</strong>：</p>
-<style>.ddlhxnhxtteu{zoom:100%;}</style><img src="/2024/09/24/Java-Base/java-code-to-machine-code.png" srcset="/img/loading.gif" lazyload class="ddlhxnhxtteu">
+<style>.kqjgwpqdydrd{zoom:100%;}</style><img src="/2024/09/24/Java-Base/java-code-to-machine-code.png" srcset="/img/loading.gif" lazyload class="kqjgwpqdydrd">
 
 <p>我们需要格外注意的是 <code>.class-&gt;机器码</code> 这一步。在这一步 JVM 类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。而且，有些方法和代码块是经常需要被调用的(也就是所谓的热点代码)，所以后面引进了 <strong>JIT（Just in Time Compilation）</strong> 编译器，而 JIT 属于运行时编译。当 JIT 编译器完成第一次编译后，其会将字节码对应的机器码保存下来，下次可以直接使用。而我们知道，机器码的运行效率肯定是高于 Java 解释器的。这也解释了我们为什么经常会说 <strong>Java 是编译与解释共存的语言</strong> 。</p>
 <img src="/2024/09/24/Java-Base/image-20240925153827361.png" srcset="/img/loading.gif" lazyload class="" title="image-20240925153827361">
