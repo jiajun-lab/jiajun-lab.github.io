@@ -21,12 +21,12 @@
   <meta name="author" content="Lee">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Java基础1. Java的语言产品为JDK，JDK组成 JVM 核心类库 JRE &#x3D; JVM+核心类库 java开发工具 JDK &#x3D; JRE + java开发工具   2. Long term Support： JDK-8（开发环境） JDK-11 JDK17（教学阶段）3. java 是执行工具 javac是编译工具4. win问题 文件扩展名问题 环境变量：用于在命令行任">
+    <meta name="description" content="Java基础0. 一些问题1. Java的语言产品为JDK，JDK组成 JVM 核心类库 JRE &#x3D; JVM+核心类库 java开发工具 JDK &#x3D; JRE + java开发工具   2. Long term Support： JDK-8（开发环境） JDK-11 JDK17（教学阶段）3. java 是执行工具 javac是编译工具4. win问题 文件扩展名问题 环境变量：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Base">
 <meta property="og:url" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/index.html">
 <meta property="og:site_name" content="Lee&#39;s Blog">
-<meta property="og:description" content="Java基础1. Java的语言产品为JDK，JDK组成 JVM 核心类库 JRE &#x3D; JVM+核心类库 java开发工具 JDK &#x3D; JRE + java开发工具   2. Long term Support： JDK-8（开发环境） JDK-11 JDK17（教学阶段）3. java 是执行工具 javac是编译工具4. win问题 文件扩展名问题 环境变量：用于在命令行任">
+<meta property="og:description" content="Java基础0. 一些问题1. Java的语言产品为JDK，JDK组成 JVM 核心类库 JRE &#x3D; JVM+核心类库 java开发工具 JDK &#x3D; JRE + java开发工具   2. Long term Support： JDK-8（开发环境） JDK-11 JDK17（教学阶段）3. java 是执行工具 javac是编译工具4. win问题 文件扩展名问题 环境变量：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/image-20240822185158268.png">
 <meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/image-20240923100409956.png">
@@ -36,8 +36,10 @@
 <meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/image-20240925153827361.png">
 <meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/image-20240925153940994.png">
 <meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/jvm-rough-structure-model.png">
+<meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/extends-bigsai-0cd258c9-b897-4be3-bdb2-2ddd9c073609.png">
+<meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/extends-bigsai-ef0d4716-8b4f-4adf-845e-dd293871b7a7.png">
 <meta property="article:published_time" content="2024-09-24T06:39:25.000Z">
-<meta property="article:modified_time" content="2024-09-27T08:10:30.796Z">
+<meta property="article:modified_time" content="2025-01-04T10:27:55.022Z">
 <meta property="article:author" content="Lee">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/image-20240822185158268.png">
@@ -246,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          5.9k 字
         
       </span>
     
@@ -257,7 +259,7 @@
         
         
         
-          21 分钟
+          50 分钟
         
       </span>
     
@@ -308,7 +310,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><h4 id="1-Java的语言产品为JDK，JDK组成"><a href="#1-Java的语言产品为JDK，JDK组成" class="headerlink" title="1. Java的语言产品为JDK，JDK组成"></a>1. Java的语言产品为<strong>JDK</strong>，JDK组成</h4><ol>
+                <h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><h2 id="0-一些问题"><a href="#0-一些问题" class="headerlink" title="0. 一些问题"></a>0. 一些问题</h2><h4 id="1-Java的语言产品为JDK，JDK组成"><a href="#1-Java的语言产品为JDK，JDK组成" class="headerlink" title="1. Java的语言产品为JDK，JDK组成"></a>1. Java的语言产品为<strong>JDK</strong>，JDK组成</h4><ol>
 <li>JVM</li>
 <li>核心类库</li>
 <li>JRE &#x3D; JVM+核心类库</li>
@@ -440,6 +442,133 @@
 </ul>
 <p>养成自己的代码风格</p>
 <p><strong>Dont Repeat Yourself</strong></p>
+<h4 id="15-Final-关键字"><a href="#15-Final-关键字" class="headerlink" title="15. Final 关键字"></a>15. Final 关键字</h4><p>当数组变量被声明为final时，数组的引用是不可变的。</p>
+<p>然而，final数组的内容是可以修改的。</p>
+<h2 id="1-面向对象编程"><a href="#1-面向对象编程" class="headerlink" title="1. 面向对象编程"></a>1. 面向对象编程</h2><h3 id="1-1-封装、继承、多态"><a href="#1-1-封装、继承、多态" class="headerlink" title="1.1 封装、继承、多态"></a>1.1 封装、继承、多态</h3><h4 id="1-1-1-封装"><a href="#1-1-1-封装" class="headerlink" title="1.1.1 封装"></a>1.1.1 封装</h4><p>1）什么是封装</p>
+<p>封装从字面上来理解就是包装的意思，专业点就是信息隐藏，<strong>是指利用抽象将数据和基于数据的操作封装在一起，使其构成一个不可分割的独立实体</strong>。</p>
+<p>数据被保护在类的内部，尽可能地隐藏内部的实现细节，只保留一些对外接口使之与外部发生联系。</p>
+<p>其他对象只能通过已经授权的操作来与这个封装的对象进行交互。也就是说用户是无需知道对象内部的细节（当然也无从知道），但可以通过该对象对外的提供的接口来访问该对象。</p>
+<p>使用封装有 4 大好处：</p>
+<ul>
+<li>1、良好的封装能够减少耦合。</li>
+<li>2、类内部的结构可以自由修改。</li>
+<li>3、可以对成员进行更精确的控制。</li>
+<li>4、隐藏信息，实现细节。</li>
+</ul>
+<h4 id="1-1-2-继承"><a href="#1-1-2-继承" class="headerlink" title="1.1.2 继承"></a>1.1.2 继承</h4><p>1）什么是继承</p>
+<p>Java 语言中<strong>继承就是子类继承父类的属性和方法，使得子类对象（实例）具有父类的属性和方法，或子类从父类继承方法，使得子类具有父类相同的方法</strong>。</p>
+<p>2）继承的种类</p>
+<ol>
+<li><p>单继承</p>
+<p>单继承，一个子类只有一个父类，如我们上面讲过的 Animal 类和它的子类。<strong>单继承在类层次结构上比较清晰，但缺点是结构的丰富度有时不能满足使用需求</strong>。</p>
+</li>
+<li><p>多继承</p>
+<p>Java 虽然不支持多继承，但是 Java 有三种实现多继承效果的方式，<strong>分别是</strong>内部类、多层继承和实现接口。</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://javabetter.cn/oo/inner-class.html">内部类</a>可以继承一个与外部类无关的类，保证了内部类的独立性，正是基于这一点，可以达到多继承的效果。</p>
+</li>
+<li><p>**多层继承：**子类继承父类，父类如果还继承其他的类，那么这就叫**多层继承**。这样子类就会拥有所有被继承类的属性和方法。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://javabetter.cn/oo/interface.html">实现接口</a>无疑是满足多继承使用需求的最好方式，一个类可以实现多个接口满足自己在丰富性和复杂环境的使用需求。</p>
+</li>
+</ol>
+<p>类和接口相比，<strong>类就是一个实体，有属性和方法，而接口更倾向于一组方法</strong>。</p>
+</li>
+</ol>
+<p>3）实现继承</p>
+<p>在 Java 中，类的继承是单一继承，也就是说一个子类只能拥有一个父类，所以<strong>extends</strong>只能继承一个类。其使用语法为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">class 子类名 extends 父类名&#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>使用 implements 关键字可以变相使 Java 拥有多继承的特性，使用范围为类实现接口的情况，一个类可以实现多个接口(接口与接口之间用逗号分开)。</p>
+<p>4）继承特点</p>
+<h5 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a><a target="_blank" rel="noopener" href="https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95">构造方法</a></h5><p><a target="_blank" rel="noopener" href="https://javabetter.cn/oo/construct.html">构造方法</a>是一种特殊的方法，<strong>它是一个与类同名的方法</strong>。在继承中<strong>构造方法是一种比较特殊的方法</strong>（比如不能继承），所以要了解和学习在继承中构造方法的规则和要求。</p>
+<p>继承中的构造方法有以下几点需要注意：</p>
+<p><strong>父类的构造方法不能被继承：</strong></p>
+<p>因为构造方法语法是<strong>与类同名</strong>，而继承则不更改方法名，如果子类继承父类的构造方法，那明显与构造方法的语法冲突了。比如 Father 类的构造方法名为 Father()，Son 类如果继承 Father 类的构造方法 Father()，那就和构造方法定义：<strong>构造方法与类同名</strong>冲突了，所以在子类中不能继承父类的构造方法，但子类会调用父类的构造方法。</p>
+<p><strong>子类的构造过程必须调用其父类的构造方法：</strong></p>
+<p>Java 虚拟机**构造子类对象前会先构造父类对象，父类对象构造完成之后再来构造子类特有的属性，**这被称为**内存叠加**。而 Java 虚拟机构造父类对象会执行父类的构造方法，所以子类构造方法必须调用 super()即父类的构造方法。就比如一个简单的继承案例应该这么写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span>&#123;<br>    <span class="hljs-keyword">public</span> String name;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">A</span><span class="hljs-params">()</span> &#123;<span class="hljs-comment">//无参构造</span><br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">A</span> <span class="hljs-params">(String name)</span>&#123;<span class="hljs-comment">//有参构造</span><br>    &#125;<br>&#125;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">B</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">A</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">B</span><span class="hljs-params">()</span> &#123;<span class="hljs-comment">//无参构造</span><br>       <span class="hljs-built_in">super</span>();<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">B</span><span class="hljs-params">(String name)</span> &#123;<span class="hljs-comment">//有参构造</span><br>      <span class="hljs-comment">//super();</span><br>       <span class="hljs-built_in">super</span>(name);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>如果子类的构造方法中没有显示地调用父类构造方法，则系统默认调用父类无参数的构造方法。</strong></p>
+<p><strong>方法重写（Override）</strong>：外壳不变重写内容</p>
+<p><strong>方法重载（Overload）</strong>：不同方法命名相同</p>
+<h5 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a><a target="_blank" rel="noopener" href="https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html#%E9%9D%9E%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">访问修饰符</a></h5><p>访问修饰符用来控制访问权限，而非访问修饰符每个都有各自的作用，下面针对 static、final、abstract 修饰符进行介绍。</p>
+<p><a target="_blank" rel="noopener" href="https://javabetter.cn/oo/static.html">static 修饰符</a></p>
+<p>static 翻译为“静态的”，能够与变量，方法和类一起使用，<strong>称为静态变量，静态方法(也称为类变量、类方法)<strong>。如果在一个类中使用 static 修饰变量或者方法的话，它们</strong>可以直接通过类访问，不需要创建一个类的对象来访问成员。</strong></p>
+<p>源代码为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">C1</span>&#123;<br>    <span class="hljs-keyword">public</span>  <span class="hljs-type">int</span> a;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">C1</span><span class="hljs-params">()</span>&#123;&#125;<br>   <span class="hljs-comment">// public static C1()&#123;&#125;// 构造方法不允许被声明为static</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doA</span><span class="hljs-params">()</span> &#123;&#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doB</span><span class="hljs-params">()</span> &#123;&#125;<br>&#125;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">C2</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">C1</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span>  <span class="hljs-keyword">void</span> <span class="hljs-title function_">doC</span><span class="hljs-params">()</span><span class="hljs-comment">//静态方法中不存在当前对象，因而不能使用this和super。</span><br>    &#123;<br>        <span class="hljs-comment">//System.out.println(super.a);</span><br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doA</span><span class="hljs-params">()</span>&#123;&#125;<span class="hljs-comment">//静态方法能被静态方法重写</span><br>   <span class="hljs-comment">// public void doB()&#123;&#125;//静态方法不能被非静态方法重写</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://javabetter.cn/oo/final.html">final 修饰符</a></p>
+<p>final 变量：</p>
+<ul>
+<li>final 表示”最后的、最终的”含义，<strong>变量一旦赋值后，不能被重新赋值</strong>。被 final 修饰的实例变量必须显式指定初始值(即不能只声明)。final 修饰符通常和 static 修饰符一起使用来创建类常量。</li>
+</ul>
+<p>final 方法：</p>
+<ul>
+<li><strong>父类中的 final 方法可以被子类继承，但是不能被子类重写</strong>。声明 final 方法的主要目的是防止该方法的内容被修改。</li>
+</ul>
+<p>final 类：</p>
+<ul>
+<li><strong>final 类不能被继承</strong>，没有类能够继承 final 类的任何特性。</li>
+</ul>
+<p>所以无论是变量、方法还是类被 final 修饰之后，都有代表最终、最后的意思。内容无法被修改。</p>
+<p><a target="_blank" rel="noopener" href="https://javabetter.cn/oo/abstract.html">abstract 修饰符</a></p>
+<p>abstract 英文名为“抽象的”，主要用来修饰类和方法，称为抽象类和抽象方法。</p>
+<p><strong>抽象方法</strong>：有很多不同类的方法是相似的，但是具体内容又不太一样，所以我们只能抽取他的声明，没有具体的方法体，即抽象方法可以表达概念但无法具体实现。</p>
+<p><strong>抽象类</strong>：<strong>有抽象方法的类必须是抽象类</strong>，抽象类可以表达概念但是无法构造实体的类。</p>
+<h5 id="向上转型"><a href="#向上转型" class="headerlink" title="向上转型"></a><a target="_blank" rel="noopener" href="https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html#%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B">向上转型</a></h5><p><strong>将子类实例赋值给父类变量</strong></p>
+<p><strong>向上转型</strong> : 通过子类对象(小范围)实例化父类对象(大范围)，这种属于自动转换。用一张图就能很好地表示向上转型的逻辑：</p>
+<p><img src="/2024/09/24/Java-Base/extends-bigsai-0cd258c9-b897-4be3-bdb2-2ddd9c073609.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>父类引用变量指向子类对象后，只能使用父类已声明的方法，但方法如果被重写会执行子类的方法，如果方法未被重写那么将执行父类的方法。</p>
+<h5 id="向下转型"><a href="#向下转型" class="headerlink" title="向下转型"></a><a target="_blank" rel="noopener" href="https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html#%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B">向下转型</a></h5><p><strong>将父类实例赋值给子类变量</strong></p>
+<p><strong>向下转型</strong> : 通过父类对象(大范围)实例化子类对象(小范围)，在书写上父类对象需要加括号<code>()</code>强制转换为子类类型。但父类引用变量实际引用必须是子类对象才能成功转型，这里也用一张图就能很好表示向下转型的逻辑：</p>
+<p><img src="/2024/09/24/Java-Base/extends-bigsai-ef0d4716-8b4f-4adf-845e-dd293871b7a7.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>子类引用变量指向父类引用变量指向的对象后(一个 Son()对象)，就完成向下转型，就可以调用一些子类特有而父类没有的方法 。</p>
+<p>5）<a target="_blank" rel="noopener" href="https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html#_08%E3%80%81%E5%AD%90%E7%88%B6%E7%B1%BB%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F">子父类初始化顺序</a></p>
+<p>在 Java 继承中，父子类初始化先后顺序为：</p>
+<ol>
+<li>父类中静态成员变量和静态代码块</li>
+<li>子类中静态成员变量和静态代码块</li>
+<li>父类中普通成员变量和代码块，父类的构造方法</li>
+<li>子类中普通成员变量和代码块，子类的构造方法</li>
+</ol>
+<p>总的来说，就是<strong>静态&gt;非静态，父类&gt;子类，非构造方法&gt;构造方法</strong>。同一类别（例如普通变量和普通代码块）成员变量和代码块执行从前到后，需要注意逻辑。</p>
+<p>这个也不难理解，静态变量也称类变量，可以看成一个全局变量，静态成员变量和静态代码块在类加载的时候就初始化，而非静态变量和代码块在对象创建的时候初始化。所以静态快于非静态初始化。</p>
+<p>而在创建子类对象的时候需要先创建父类对象，所以父类优先于子类。</p>
+<p>而在调用构造方法的时候，是对成员变量进行一些初始化操作，所以普通成员变量和代码块优于构造方法执行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Father</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Father</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(++b1+<span class="hljs-string">&quot;父类构造方法&quot;</span>);<br>    &#125;<span class="hljs-comment">//父类构造方法 第四</span><br>    <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> a1=<span class="hljs-number">0</span>;<span class="hljs-comment">//父类static 第一 注意顺序</span><br>    <span class="hljs-keyword">static</span> &#123;<br>        System.out.println(++a1+<span class="hljs-string">&quot;父类static&quot;</span>);<br>    &#125;<br>    <span class="hljs-type">int</span> b1=a1;<span class="hljs-comment">//父类成员变量和代码块 第三</span><br>    &#123;<br>        System.out.println(++b1+<span class="hljs-string">&quot;父类代码块&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Son</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Father</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Son</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(++b2+<span class="hljs-string">&quot;子类构造方法&quot;</span>);<br>    &#125;<span class="hljs-comment">//子类构造方法 第六</span><br>    <span class="hljs-keyword">static</span> &#123;<span class="hljs-comment">//子类static第二步</span><br>        System.out.println(++a1+<span class="hljs-string">&quot;子类static&quot;</span>);<br>    &#125;<br>    <span class="hljs-type">int</span> b2=b1;<span class="hljs-comment">//子类成员变量和代码块 第五</span><br>    &#123;<br>        System.out.println(++b2 + <span class="hljs-string">&quot;子类代码块&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">test9</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        Son son=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Son</span>();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="1-1-3-多态（动态绑定）"><a href="#1-1-3-多态（动态绑定）" class="headerlink" title="1.1.3 多态（动态绑定）"></a>1.1.3 多态（动态绑定）</h4><p>Java 的多态是指在面向对象编程中，同一个类的对象在不同情况下表现出来的不同行为和状态。</p>
+<ul>
+<li>子类可以继承父类的字段和方法，子类对象可以直接使用父类中的方法和字段（私有的不行）。</li>
+<li>子类可以重写从父类继承来的方法，使得子类对象调用这个方法时表现出不同的行为。</li>
+<li>可以将子类对象赋给父类类型的引用，这样就可以通过父类类型的引用调用子类中重写的方法，实现多态。</li>
+</ul>
+<p>多态的目的是为了提高代码的灵活性和可扩展性，使得代码更容易维护和扩展。</p>
+<p>比如说，通过允许子类继承父类的方法并重写，增强了代码的复用性。</p>
+<p>再比如说多态可以实现动态绑定，这意味着程序在运行时再确定对象的方法调用也不迟。</p>
+<p>1）什么是多态</p>
+<p>多态的前提条件有三个：</p>
+<ul>
+<li>子类继承父类</li>
+<li>子类重写父类的方法</li>
+<li>父类引用指向子类的对象</li>
+</ul>
+<p>2）多态与后期绑定</p>
+<p>答案是在运行时根据对象的类型进行后期绑定，编译器在编译阶段并不知道对象的类型，但是 Java 的方法调用机制能找到正确的方法体，然后执行，得到正确的结果。</p>
+<p>3）多态与构造方法</p>
+<p>在构造方法中调用多态方法，会产生一个奇妙的结果，我们来看程序清单 3-1：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Wangxiaosan</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Wangsan</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">age</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Wangxiaosan</span><span class="hljs-params">(<span class="hljs-type">int</span> age)</span> &#123;<br>        <span class="hljs-built_in">this</span>.age = age;<br>        System.out.println(<span class="hljs-string">&quot;王小三的年龄：&quot;</span> + <span class="hljs-built_in">this</span>.age);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">write</span><span class="hljs-params">()</span> &#123; <span class="hljs-comment">// 子类覆盖父类方法</span><br>        System.out.println(<span class="hljs-string">&quot;我小三上幼儿园的年龄是：&quot;</span> + <span class="hljs-built_in">this</span>.age);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Wangxiaosan</span>(<span class="hljs-number">4</span>);<br><span class="hljs-comment">//      上幼儿园之前</span><br><span class="hljs-comment">//      我小三上幼儿园的年龄是：0</span><br><span class="hljs-comment">//      上幼儿园之后</span><br><span class="hljs-comment">//      王小三的年龄：4</span><br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Wangsan</span> &#123;<br>    Wangsan () &#123;<br>        System.out.println(<span class="hljs-string">&quot;上幼儿园之前&quot;</span>);<br>        write();<br>        System.out.println(<span class="hljs-string">&quot;上幼儿园之后&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">write</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;老子上幼儿园的年龄是3岁半&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!NOTE]</p>
+<p>从输出结果上看，是不是有点诧异？明明在创建 Wangxiaosan 对象的时候，年龄传递的是 4，但输出结果既不是“老子上幼儿园的年龄是 3 岁半”，也不是“我小三上幼儿园的年龄是：4”。</p>
+<p>为什么？</p>
+<p>因为在创建子类对象时，会先去调用父类的构造方法，而父类构造方法中又调用了被子类覆盖的多态方法，由于父类并不清楚子类对象中的字段值是什么，于是把 int 类型的属性暂时初始化为 0，然后再调用子类的构造方法（子类构造方法知道王小二的年龄是 4）。</p>
+</blockquote>
+<h4 id="04、多态与向下转型"><a href="#04、多态与向下转型" class="headerlink" title="04、多态与向下转型"></a><a target="_blank" rel="noopener" href="https://javabetter.cn/oo/encapsulation-inheritance-polymorphism.html#_04%E3%80%81%E5%A4%9A%E6%80%81%E4%B8%8E%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B">04、多态与向下转型</a></h4><p>向下转型是指将父类引用强转为子类类型；这是不安全的，因为有的时候，父类引用指向的是父类对象，向下转型就会抛出 ClassCastException，表示类型转换失败；但如果父类引用指向的是子类对象，那么向下转型就是成功的。</p>
+<p>来看程序清单 4-1：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Wangxiaosi</span> <span class="hljs-title">extends</span> <span class="hljs-title">Wangsi</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">write</span>()</span> &#123;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;记住仇恨，表明我们要奋发图强的心智&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span>()</span> &#123;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;我不喜欢读书，我就喜欢吃&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span> &#123;<br>        Wangsi[] wangsis = &#123; <span class="hljs-keyword">new</span> Wangsi(), <span class="hljs-keyword">new</span> Wangxiaosi() &#125;;<br><br>        <span class="hljs-comment">// wangsis[1]能够向下转型</span><br>        ((Wangxiaosi) wangsis[<span class="hljs-number">1</span>]).write();<br>        <span class="hljs-comment">// wangsis[0]不能向下转型</span><br>        ((Wangxiaosi)wangsis[<span class="hljs-number">0</span>]).write();<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">Wangsi</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">write</span>()</span> &#123;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;勿忘国耻&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">read</span>()</span> &#123;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;每周读一本好书&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
