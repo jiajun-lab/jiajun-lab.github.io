@@ -21,22 +21,22 @@
   <meta name="author" content="Lee">
   <meta name="keywords" content="">
   
-    <meta name="description" content="my life blog">
+    <meta name="description" content="#{}和${}的区别在MyBatis中，#{}和${}都是用于在SQL语句中进行参数的传递，但它们之间有一些重要的区别。#{}用于预编译参数，MyBatis在将SQL语句发送到数据库之前，会使用PreparedStatement参数化查询的方式来处理#{}中的内容，这样可以有效防止SQL注入攻击，并且能够正确地处理特殊字符转义。因此，建议在编写SQL语句时使用#{}来引用参数。${}则是直接进行字">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql Base">
-<meta property="og:url" content="https://jiajun-lab.github.io/2025/01/06/Mysql-Base/index.html">
+<meta property="og:title" content="Mybatis">
+<meta property="og:url" content="https://jiajun-lab.github.io/2025/01/07/Mybatis/index.html">
 <meta property="og:site_name" content="Lee&#39;s Blog">
-<meta property="og:description" content="my life blog">
+<meta property="og:description" content="#{}和${}的区别在MyBatis中，#{}和${}都是用于在SQL语句中进行参数的传递，但它们之间有一些重要的区别。#{}用于预编译参数，MyBatis在将SQL语句发送到数据库之前，会使用PreparedStatement参数化查询的方式来处理#{}中的内容，这样可以有效防止SQL注入攻击，并且能够正确地处理特殊字符转义。因此，建议在编写SQL语句时使用#{}来引用参数。${}则是直接进行字">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-01-06T06:22:41.000Z">
-<meta property="article:modified_time" content="2025-01-07T04:14:52.257Z">
+<meta property="article:published_time" content="2025-01-07T04:13:24.000Z">
+<meta property="article:modified_time" content="2025-01-07T04:14:36.436Z">
 <meta property="article:author" content="Lee">
 <meta property="article:tag" content="database">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Mysql Base - Lee&#39;s Blog</title>
+  <title>Mybatis - Lee&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Mysql Base"></span>
+            <span id="subtitle" data-typed-text="Mybatis"></span>
           
         </div>
 
@@ -226,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-06 14:22" pubdate>
-          2025年1月6日 下午
+        <time datetime="2025-01-07 12:13" pubdate>
+          2025年1月7日 中午
         </time>
       </span>
     
@@ -238,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          361 字
         
       </span>
     
@@ -249,7 +249,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -295,12 +295,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Mysql Base</h1>
+            <h1 id="seo-header">Mybatis</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <p>#{}和${}的区别<br>在MyBatis中，#{}和${}都是用于在SQL语句中进行参数的传递，但它们之间有一些重要的区别。<br>#{}用于预编译参数，MyBatis在将SQL语句发送到数据库之前，会使用PreparedStatement参数化查询的方式来处理#{}中的内容，这样可以有效防止SQL注入攻击，并且能够正确地处理特殊字符转义。因此，建议在编写SQL语句时使用#{}来引用参数。<br>${}则是直接进行字符串替换，不会进行预编译，而是将其中的内容直接拼接到sql语句中。这种方式可能会存在sql注入的风险，因此不建议在编写sql语句时使用则是直接进行字符串替换，不会进行预编译，而是将其中的内容直接拼接到SQL语句中。这种方式可能会存在SQL注入的风险，因此不建议在编写SQL语句时使用{}来引用参数，除非你非常清楚自己在做什么并且能够确保参数的安全性。<br>因此，总的来说，推荐在MyBatis中使用#{}来引用参数，以确保SQL的安全性和可读性。</p>
+<p>作者：沉着的码农<br>链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7314120541720150068">https://juejin.cn/post/7314120541720150068</a><br>来源：稀土掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
                 
               </div>
             
@@ -345,8 +347,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Mysql Base</div>
-      <div>https://jiajun-lab.github.io/2025/01/06/Mysql-Base/</div>
+      <div>Mybatis</div>
+      <div>https://jiajun-lab.github.io/2025/01/07/Mybatis/</div>
     </div>
     <div class="license-meta">
       
@@ -358,7 +360,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年1月6日</div>
+          <div>2025年1月7日</div>
         </div>
       
       
@@ -390,18 +392,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/06/Spring/" title="Spring">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Spring</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/09/26/Spring-Boot-2/" title="Spring Boot(2)">
-                        <span class="hidden-mobile">Spring Boot(2)</span>
+                      <a href="/2025/01/06/Spring/" title="Spring">
+                        <span class="hidden-mobile">Spring</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
