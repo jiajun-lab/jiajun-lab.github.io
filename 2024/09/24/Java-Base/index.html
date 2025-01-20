@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/extends-bigsai-0cd258c9-b897-4be3-bdb2-2ddd9c073609.png">
 <meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/extends-bigsai-ef0d4716-8b4f-4adf-845e-dd293871b7a7.png">
 <meta property="article:published_time" content="2024-09-24T06:39:25.000Z">
-<meta property="article:modified_time" content="2025-01-11T12:58:43.358Z">
+<meta property="article:modified_time" content="2025-01-14T04:11:54.139Z">
 <meta property="article:author" content="Lee">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary_large_image">
@@ -250,7 +250,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          20k 字
+          22k 字
         
       </span>
     
@@ -261,7 +261,7 @@
         
         
         
-          167 分钟
+          181 分钟
         
       </span>
     
@@ -1376,9 +1376,8 @@
 <p>[!NOTE]</p>
 <p><code>hashCode()</code>方法编写得越好，<code>HashMap</code>工作的效率就越高。</p>
 </blockquote>
-<h5 id="EnumMap"><a href="#EnumMap" class="headerlink" title="EnumMap"></a>EnumMap</h5><p>如果作为key的对象是<code>enum</code>类型，那么，还可以使用Java集合库提供的一种<code>EnumMap</code>，它在内部以一个非常紧凑的数组存储value，并且根据<code>enum</code>类型的key直接定位到内部数组的索引，并不需要计算<code>hashCode()</code>，不但效率最高，而且没有额外的空间浪费。</p>
-<p><strong>有序Map</strong></p>
-<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs mathematica">     	 ┌───┐<br>       │<span class="hljs-built_in">Map</span>│<br>       └───┘<br>         ▲<br>    ┌────┴─────┐<br>    │          │<br>┌───────┐ ┌─────────┐<br>│<span class="hljs-variable">HashMap</span>│ │<span class="hljs-variable">SortedMap</span>│<br>└───────┘ └─────────┘<br>               ▲<br>               │<br>          ┌─────────┐<br>          │ <span class="hljs-built_in">TreeMap</span> │<br>          └─────────┘<br></code></pre></td></tr></table></figure>
+<h4 id="5-2-1-EnumMap"><a href="#5-2-1-EnumMap" class="headerlink" title="5.2.1 EnumMap"></a>5.2.1 EnumMap</h4><p>如果作为key的对象是<code>enum</code>类型，那么，还可以使用Java集合库提供的一种<code>EnumMap</code>，它在内部以一个非常紧凑的数组存储value，并且根据<code>enum</code>类型的key直接定位到内部数组的索引，并不需要计算<code>hashCode()</code>，不但效率最高，而且没有额外的空间浪费。</p>
+<h4 id="5-2-2-有序Map"><a href="#5-2-2-有序Map" class="headerlink" title="5.2.2 有序Map"></a>5.2.2 <strong>有序Map</strong></h4><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs mathematica">     	 ┌───┐<br>       │<span class="hljs-built_in">Map</span>│<br>       └───┘<br>         ▲<br>    ┌────┴─────┐<br>    │          │<br>┌───────┐ ┌─────────┐<br>│<span class="hljs-variable">HashMap</span>│ │<span class="hljs-variable">SortedMap</span>│<br>└───────┘ └─────────┘<br>               ▲<br>               │<br>          ┌─────────┐<br>          │ <span class="hljs-built_in">TreeMap</span> │<br>          └─────────┘<br></code></pre></td></tr></table></figure>
 
 
 
@@ -1395,6 +1394,136 @@
 
 
 
+<h4 id="5-2-3-Properties"><a href="#5-2-3-Properties" class="headerlink" title="5.2.3 Properties"></a>5.2.3 Properties</h4><p>典型配置文件：springboot.properties</p>
+<p>配置文件非常常用，所以Java集合库提供了一个<code>Properties</code>来表示一组“配置”。由于历史遗留原因，<code>Properties</code>内部本质上是一个<code>Hashtable</code>，但我们只需要用到<code>Properties</code>自身关于读写配置的接口。</p>
+<h5 id="读取配置文件"><a href="#读取配置文件" class="headerlink" title="读取配置文件"></a>读取配置文件</h5><p>用<code>Properties</code>读取配置文件，一共有三步：</p>
+<ol>
+<li>创建<code>Properties</code>实例；</li>
+<li>调用<code>load()</code>读取文件；</li>
+<li>调用<code>getProperty()</code>获取配置。</li>
+</ol>
+<p>调用<code>getProperty()</code>获取配置时，如果key不存在，将返回<code>null</code>。我们还可以提供一个默认值，这样，当key不存在的时候，就返回默认值。</p>
+<h5 id="写入配置文件"><a href="#写入配置文件" class="headerlink" title="写入配置文件"></a>写入配置文件</h5><p>通过<code>setProperty()</code>修改<code>Properties</code>实例</p>
+<h3 id="5-3-Set"><a href="#5-3-Set" class="headerlink" title="5.3 Set"></a>5.3 Set</h3><p>主要方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">boolean</span> <span class="hljs-title function_">add</span><span class="hljs-params">(E e)</span><br><span class="hljs-type">boolean</span> <span class="hljs-title function_">remove</span><span class="hljs-params">(Object e)</span><br><span class="hljs-type">boolean</span> <span class="hljs-title function_">contains</span><span class="hljs-params">(Object e)</span><br></code></pre></td></tr></table></figure>
+
+<p>最常用的Set的实现类是HashSet，HashSet是HashMap的简单封装；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HashSet</span>&lt;E&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Set</span>&lt;E&gt; &#123;<br>    <span class="hljs-comment">// 持有一个HashMap:</span><br>    <span class="hljs-keyword">private</span> HashMap&lt;E, Object&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br><br>    <span class="hljs-comment">// 放入HashMap的value:</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">Object</span> <span class="hljs-variable">PRESENT</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">add</span><span class="hljs-params">(E e)</span> &#123;<br>        <span class="hljs-keyword">return</span> map.put(e, PRESENT) == <span class="hljs-literal">null</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">contains</span><span class="hljs-params">(Object o)</span> &#123;<br>        <span class="hljs-keyword">return</span> map.containsKey(o);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">remove</span><span class="hljs-params">(Object o)</span> &#123;<br>        <span class="hljs-keyword">return</span> map.remove(o) == PRESENT;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>Set</code>接口并不保证有序，而<code>SortedSet</code>接口则保证元素是有序的：</p>
+<ul>
+<li><code>HashSet</code>是无序的，因为它实现了<code>Set</code>接口，并没有实现<code>SortedSet</code>接口；</li>
+<li><code>TreeSet</code>是有序的，因为它实现了<code>SortedSet</code>接口。</li>
+<li>使用<code>TreeSet</code>和使用<code>TreeMap</code>的要求一样，添加的元素必须正确实现<code>Comparable</code>接口，如果没有实现<code>Comparable</code>接口，那么创建<code>TreeSet</code>时必须传入一个<code>Comparator</code>对象。</li>
+</ul>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs gams">       ┌───┐<br>       │<span class="hljs-keyword">Set</span>│<br>       └───┘<br>         ▲<br>    ┌────┴─────┐<br>    │          │<br>┌───────┐ ┌─────────┐<br>│HashSet│ │SortedSet│<br>└───────┘ └─────────┘<br>               ▲<br>               │<br>          ┌─────────┐<br>          │ TreeSet │<br>          └─────────┘<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-4-Queue"><a href="#5-4-Queue" class="headerlink" title="5.4 Queue"></a>5.4 Queue</h3><h4 id="5-4-1-Queue"><a href="#5-4-1-Queue" class="headerlink" title="5.4.1 Queue"></a>5.4.1 Queue</h4><p>队列是一种经常使用的集合。<code>Queue</code>实际上是实现了一个先进先出（FIFO：First In First Out）的有序表。它和<code>List</code>的区别在于，<code>List</code>可以在任意位置添加和删除元素，而<code>Queue</code>只有两个操作：</p>
+<ul>
+<li>把元素添加到队列末尾；</li>
+<li>从队列头部取出元素。</li>
+</ul>
+<p>常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span> <span class="hljs-title function_">size</span><span class="hljs-params">()</span>：获取队列长度；<br><span class="hljs-type">boolean</span> <span class="hljs-title function_">add</span><span class="hljs-params">(E)</span>/<span class="hljs-type">boolean</span> <span class="hljs-title function_">offer</span><span class="hljs-params">(E)</span>：添加元素到队尾；<br>E <span class="hljs-title function_">remove</span><span class="hljs-params">()</span>/E <span class="hljs-title function_">poll</span><span class="hljs-params">()</span>：获取队首元素并从队列中删除；<br>E <span class="hljs-title function_">element</span><span class="hljs-params">()</span>/E <span class="hljs-title function_">peek</span><span class="hljs-params">()</span>：获取队首元素但并不从队列中删除。<br></code></pre></td></tr></table></figure>
+
+<p>对于具体的实现类，有的Queue有最大队列长度限制，有的Queue没有。注意到添加、删除和获取队列元素总是有两个方法，这是因为在添加或获取元素失败时，这两个方法的行为是不同的。我们用一个表格总结如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>throw Exception</th>
+<th>返回false或null</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>添加元素到队尾</td>
+<td>add(E e)</td>
+<td>boolean offer(E e)</td>
+</tr>
+<tr>
+<td>取队首元素并删除</td>
+<td>E remove()</td>
+<td>E poll()</td>
+</tr>
+<tr>
+<td>取队首元素但不删除</td>
+<td>E element()</td>
+<td>E peek()</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>注意：</strong><code>LinkedList</code>即实现了<code>List</code>接口，又实现了<code>Queue</code>接口，但是，在使用的时候，如果我们把它当作List，就获取List的引用，如果我们把它当作Queue，就获取Queue的引用：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 这是一个List:</span><br>List&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br><span class="hljs-comment">// 这是一个Queue:</span><br>Queue&lt;String&gt; queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br></code></pre></td></tr></table></figure>
+
+<p>始终按照面向抽象编程的原则编写代码，可以大大提高代码的质量。</p>
+<h4 id="5-4-2-PriorityQueue"><a href="#5-4-2-PriorityQueue" class="headerlink" title="5.4.2 PriorityQueue"></a>5.4.2 PriorityQueue</h4><p><code>PriorityQueue</code>和<code>Queue</code>的区别在于，它的出队顺序与元素的优先级有关，对<code>PriorityQueue</code>调用<code>remove()</code>或<code>poll()</code>方法，返回的总是优先级最高的元素。</p>
+<p>要使用<code>PriorityQueue</code>，我们就必须给每个元素定义“优先级”。我们以实际代码为例，先看看<code>PriorityQueue</code>的行为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.PriorityQueue;<br><span class="hljs-keyword">import</span> java.util.Queue;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        Queue&lt;String&gt; q = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;&gt;();<br>        <span class="hljs-comment">// 添加3个元素到队列:</span><br>        q.offer(<span class="hljs-string">&quot;apple&quot;</span>);<br>        q.offer(<span class="hljs-string">&quot;pear&quot;</span>);<br>        q.offer(<span class="hljs-string">&quot;banana&quot;</span>);<br>        System.out.println(q.poll()); <span class="hljs-comment">// apple</span><br>        System.out.println(q.poll()); <span class="hljs-comment">// banana</span><br>        System.out.println(q.poll()); <span class="hljs-comment">// pear</span><br>        System.out.println(q.poll()); <span class="hljs-comment">// null,因为队列为空</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>我们放入的顺序是<code>&quot;apple&quot;</code>、<code>&quot;pear&quot;</code>、<code>&quot;banana&quot;</code>，但是取出的顺序却是<code>&quot;apple&quot;</code>、<code>&quot;banana&quot;</code>、<code>&quot;pear&quot;</code>，这是因为从字符串的排序看，<code>&quot;apple&quot;</code>排在最前面，<code>&quot;pear&quot;</code>排在最后面。</p>
+<p><strong>因此，放入<code>PriorityQueue</code>的元素，必须实现<code>Comparable</code>接口或者提供一个Comparator的对象，<code>PriorityQueue</code>会根据元素的排序顺序决定出队的优先级。</strong></p>
+<p><strong>银行排队业务实例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Comparator;<br><span class="hljs-keyword">import</span> java.util.PriorityQueue;<br><span class="hljs-keyword">import</span> java.util.Queue;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        Queue&lt;User&gt; q = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;&gt;(<span class="hljs-keyword">new</span> <span class="hljs-title class_">UserComparator</span>());<br>        <span class="hljs-comment">// 添加3个元素到队列:</span><br>        q.offer(<span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>(<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;A1&quot;</span>));<br>        q.offer(<span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>(<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-string">&quot;A2&quot;</span>));<br>        q.offer(<span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>(<span class="hljs-string">&quot;Boss&quot;</span>, <span class="hljs-string">&quot;V1&quot;</span>));<br>        System.out.println(q.poll()); <span class="hljs-comment">// Boss/V1</span><br>        System.out.println(q.poll()); <span class="hljs-comment">// Bob/A1</span><br>        System.out.println(q.poll()); <span class="hljs-comment">// Alice/A2</span><br>        System.out.println(q.poll()); <span class="hljs-comment">// null,因为队列为空</span><br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">UserComparator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Comparator</span>&lt;User&gt; &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compare</span><span class="hljs-params">(User u1, User u2)</span> &#123;<br>        <span class="hljs-keyword">if</span> (u1.number.charAt(<span class="hljs-number">0</span>) == u2.number.charAt(<span class="hljs-number">0</span>)) &#123;<br>            <span class="hljs-comment">// 如果两人的号都是A开头或者都是V开头,比较号的大小:</span><br>          	<span class="hljs-comment">// 这里实现有问题，不应该使用String的compareTo方法，会导致A10排在A2的前面</span><br>            <span class="hljs-keyword">return</span> u1.number.compareTo(u2.number);<br>          	<span class="hljs-comment">// 修改</span><br>          	<span class="hljs-type">int</span> <span class="hljs-variable">num1</span> <span class="hljs-operator">=</span> Integer.parseInt(u1.number);<br>          	<span class="hljs-type">int</span> <span class="hljs-variable">num2</span> <span class="hljs-operator">=</span> Integer.parseInt(u2.number);<br>          	<span class="hljs-keyword">return</span> Integer.compare(num1,num2);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (u1.number.charAt(<span class="hljs-number">0</span>) == <span class="hljs-string">&#x27;V&#x27;</span>) &#123;<br>            <span class="hljs-comment">// u1的号码是V开头,优先级高:</span><br>            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> String name;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> String number;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">User</span><span class="hljs-params">(String name, String number)</span> &#123;<br>        <span class="hljs-built_in">this</span>.name = name;<br>        <span class="hljs-built_in">this</span>.number = number;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> name + <span class="hljs-string">&quot;/&quot;</span> + number;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-4-3-Deque-双端队列"><a href="#5-4-3-Deque-双端队列" class="headerlink" title="5.4.3 Deque 双端队列"></a>5.4.3 Deque 双端队列</h4><p>们来比较一下<code>Queue</code>和<code>Deque</code>出队和入队的方法：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Queue</th>
+<th>Deque</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>添加元素到队尾</td>
+<td>add(E e) &#x2F; offer(E e)</td>
+<td>addLast(E e) &#x2F; offerLast(E e)</td>
+</tr>
+<tr>
+<td>取队首元素并删除</td>
+<td>E remove() &#x2F; E poll()</td>
+<td>E removeFirst() &#x2F; E pollFirst()</td>
+</tr>
+<tr>
+<td>取队首元素但不删除</td>
+<td>E element() &#x2F; E peek()</td>
+<td>E getFirst() &#x2F; E peekFirst()</td>
+</tr>
+<tr>
+<td>添加元素到队首</td>
+<td>无</td>
+<td>addFirst(E e) &#x2F; offerFirst(E e)</td>
+</tr>
+<tr>
+<td>取队尾元素并删除</td>
+<td>无</td>
+<td>E removeLast() &#x2F; E pollLast()</td>
+</tr>
+<tr>
+<td>取队尾元素但不删除</td>
+<td>无</td>
+<td>E getLast() &#x2F; E peekLast()</td>
+</tr>
+</tbody></table>
+<p>使用<code>Deque</code>，推荐总是明确调用<code>offerLast()</code>&#x2F;<code>offerFirst()</code>或者<code>pollFirst()</code>&#x2F;<code>pollLast()</code>方法。</p>
+<p><code>Deque</code>是一个接口，它的实现类有<code>ArrayDeque</code>和<code>LinkedList</code>。</p>
+<p>我们发现<code>LinkedList</code>真是一个全能选手，它即是<code>List</code>，又是<code>Queue</code>，还是<code>Deque</code>。但是我们在使用的时候，总是用特定的接口来引用它，这是因为持有接口说明代码的抽象层次更高，而且接口本身定义的方法代表了特定的用途。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 不推荐的写法:</span><br>LinkedList&lt;String&gt; d1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br>d1.offerLast(<span class="hljs-string">&quot;z&quot;</span>);<br><span class="hljs-comment">// 推荐的写法：</span><br>Deque&lt;String&gt; d2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br>d2.offerLast(<span class="hljs-string">&quot;z&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>可见面向抽象编程的一个原则就是：尽量持有接口，而不是具体的实现类。</p>
+<h4 id="5-4-4-Stack"><a href="#5-4-4-Stack" class="headerlink" title="5.4.4 Stack"></a>5.4.4 Stack</h4><p>栈（Stack）是一种后进先出（LIFO）的数据结构，操作栈的元素的方法有：</p>
+<ul>
+<li>把元素压栈：<code>push(E)</code>；</li>
+<li>把栈顶的元素“弹出”：<code>pop(E)</code>；</li>
+<li>取栈顶元素但不弹出：<code>peek(E)</code>。</li>
+</ul>
+<p>在Java中，我们用<code>Deque</code>可以实现<code>Stack</code>的功能，注意只调用<code>push()</code>&#x2F;<code>pop()</code>&#x2F;<code>peek()</code>方法，避免调用<code>Deque</code>的其他方法；</p>
+<p>不要使用遗留类<code>Stack</code>。</p>
+<h5 id="实现案例"><a href="#实现案例" class="headerlink" title="实现案例"></a>实现案例</h5><p><strong>JVM方法调用栈</strong></p>
+<p><strong>计算中缀表达式</strong></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Sinte-Beuve/p/5758971.html">https://www.cnblogs.com/Sinte-Beuve/p/5758971.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://roadmap.sh/java">https://roadmap.sh/java</a></p>
 <p><a target="_blank" rel="noopener" href="https://liaoxuefeng.com/https://liaoxuefeng.com/">廖雪峰的官方网站</a></p>
