@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/extends-bigsai-0cd258c9-b897-4be3-bdb2-2ddd9c073609.png">
 <meta property="og:image" content="https://jiajun-lab.github.io/2024/09/24/Java-Base/extends-bigsai-ef0d4716-8b4f-4adf-845e-dd293871b7a7.png">
 <meta property="article:published_time" content="2024-09-24T06:39:25.000Z">
-<meta property="article:modified_time" content="2025-01-14T04:11:54.139Z">
+<meta property="article:modified_time" content="2025-02-17T03:38:42.862Z">
 <meta property="article:author" content="Lee">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary_large_image">
@@ -261,7 +261,7 @@
         
         
         
-          181 分钟
+          184 分钟
         
       </span>
     
@@ -1524,6 +1524,39 @@
 <p>不要使用遗留类<code>Stack</code>。</p>
 <h5 id="实现案例"><a href="#实现案例" class="headerlink" title="实现案例"></a>实现案例</h5><p><strong>JVM方法调用栈</strong></p>
 <p><strong>计算中缀表达式</strong></p>
+<h3 id="5-5-Iterator"><a href="#5-5-Iterator" class="headerlink" title="5.5 Iterator"></a>5.5 Iterator</h3><p> Java的集合类都可以使用<code>for each</code>循环，<code>List</code>、<code>Set</code>和<code>Queue</code>会迭代每个元素，<code>Map</code>会迭代每个key。以<code>List</code>为例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;String&gt; list = List.of(<span class="hljs-string">&quot;Apple&quot;</span>, <span class="hljs-string">&quot;Orange&quot;</span>, <span class="hljs-string">&quot;Pear&quot;</span>);<br><span class="hljs-keyword">for</span> (String s : list) &#123;<br>    System.out.println(s);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>实际上，Java编译器并不知道如何遍历<code>List</code>。上述代码能够编译通过，只是因为编译器把<code>for each</code>循环通过<code>Iterator</code>改写为了普通的<code>for</code>循环：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (Iterator&lt;String&gt; it = list.iterator(); it.hasNext(); ) &#123;<br>     <span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> it.next();<br>     System.out.println(s);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>我们把这种通过<code>Iterator</code>对象遍历集合的模式称为迭代器。</p>
+<p>在编写<code>Iterator</code>的时候，我们通常可以用一个内部类来实现<code>Iterator</code>接口，这个内部类可以直接访问对应的外部类的所有字段和方法。例如，上述代码中，内部类<code>ReverseIterator</code>可以用<code>ReverseList.this</code>获得当前外部类的<code>this</code>引用，然后，通过这个<code>this</code>引用就可以访问<code>ReverseList</code>的所有字段和方法。</p>
+<h3 id="5-6-Collections"><a href="#5-6-Collections" class="headerlink" title="5.6 Collections"></a>5.6 Collections</h3><ol>
+<li><p>创建空集合</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title class_">List</span>.<span class="hljs-title function_">of</span>()<span class="hljs-string">`、`</span><span class="hljs-title class_">Map</span>.<span class="hljs-title function_">of</span>()<span class="hljs-string">`、`</span><span class="hljs-title class_">Set</span>.<span class="hljs-title function_">of</span>() <span class="hljs-comment">//jdk9+</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>创建单元素集合</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-built_in">List</span>.of(T<span class="hljs-params">...</span>)<span class="hljs-string">`、`</span><span class="hljs-built_in">Map</span>.of(T<span class="hljs-params">...</span>)<span class="hljs-string">`、`</span><span class="hljs-built_in">Set</span>.of(T<span class="hljs-params">...</span>) <span class="hljs-comment">// jdk9+</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>排序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Collections.sort(list);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>洗牌</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Collections.shuffle(list);<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>不可变集合</p>
+</li>
+<li><p>线程安全集合</p>
+</li>
+</ol>
+<h2 id="6-I-O"><a href="#6-I-O" class="headerlink" title="6. I&#x2F;O"></a>6. I&#x2F;O</h2><h3 id="6-1-IO流简介"><a href="#6-1-IO流简介" class="headerlink" title="6.1 IO流简介"></a>6.1 IO流简介</h3><p>Java IO 流的 40 多个类都是从如下 4 个抽象类基类中派生出来的。</p>
+<ul>
+<li><code>InputStream</code>&#x2F;<code>Reader</code>: 所有的输入流的基类，前者是字节输入流，后者是字符输入流。</li>
+<li><code>OutputStream</code>&#x2F;<code>Writer</code>: 所有输出流的基类，前者是字节输出流，后者是字符输出流。</li>
+</ul>
+<p><strong>字节流</strong></p>
+<p><strong>字符流</strong></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Sinte-Beuve/p/5758971.html">https://www.cnblogs.com/Sinte-Beuve/p/5758971.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://roadmap.sh/java">https://roadmap.sh/java</a></p>
 <p><a target="_blank" rel="noopener" href="https://liaoxuefeng.com/https://liaoxuefeng.com/">廖雪峰的官方网站</a></p>
