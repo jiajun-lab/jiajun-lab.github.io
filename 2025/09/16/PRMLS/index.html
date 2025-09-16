@@ -28,13 +28,13 @@
 <meta property="og:site_name" content="Lee&#39;s Blog">
 <meta property="og:description" content="PATTERN RECOGNITION AND MACHINE LEARNING SYSTEMSDay 1Day 22.1 Neural Network Models and Designs2.1.1 径向基函数 Radial Basis Function Networks（1）Architecture 输入层与隐藏层完全连接  隐藏层与输出层完全连接   node  输入层的每个节点：接受输入变">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jiajun-lab.github.io/Users/lijiajun/Library/Application%20Support/typora-user-images/image-20250916100540368.png">
+<meta property="og:image" content="https://jiajun-lab.github.io/2025/09/16/PRMLS/image-20250916100540368.png">
 <meta property="article:published_time" content="2025-09-16T01:42:04.000Z">
-<meta property="article:modified_time" content="2025-09-16T06:14:46.467Z">
+<meta property="article:modified_time" content="2025-09-16T06:27:22.400Z">
 <meta property="article:author" content="Lee">
 <meta property="article:tag" content="ISS">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jiajun-lab.github.io/Users/lijiajun/Library/Application%20Support/typora-user-images/image-20250916100540368.png">
+<meta name="twitter:image" content="https://jiajun-lab.github.io/2025/09/16/PRMLS/image-20250916100540368.png">
   
   
   
@@ -320,7 +320,7 @@
 <li>连接内部节点和输出节点的可调权重（通过监督学习）</li>
 </ol>
 <h4 id="（2）Active"><a href="#（2）Active" class="headerlink" title="（2）Active"></a>（2）Active</h4><p>第 j 个基函数（核）对位于其核中心 cj 相同径向距离内的所有输入给出相同的激活值。核节点通常使用高斯激活基函数，该函数取决于输入向量 x 和节点中心向量 ci 之间的距离。在这种情况下，隐藏层第 i 个节点的激活值计算如下，其中 σi 是平滑参数（也称为归一化因子）：</p>
-<img src="/Users/lijiajun/Library/Application Support/typora-user-images/image-20250916100540368.png" srcset="/img/loading.gif" lazyload alt="image-20250916100540368" style="zoom:50%;" />
+<img src="image-20250916100540368.png" srcset="/img/loading.gif" lazyload alt="image-20250916100540368" style="zoom:50%;" />
 
 <h4 id="（3）Training"><a href="#（3）Training" class="headerlink" title="（3）Training"></a>（3）Training</h4><ul>
 <li>two parameters (c i and σi ) to be found for each kernel node i</li>
